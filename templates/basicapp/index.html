@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'basicapp/base.html' %}
+  {% block body_block %}
+  <div class="container">
+      <h1>Index Page</h1>
+      <a href="{% url 'other' %}">Other Page</a>
+      <a href="{% url 'about' %}">About Page</a>
+      <a href="{% url 'admin:index' %}">Admin Page</a>
+  </div>
+  <div class="container">
+    <h2>Before : {{ text }}</h2>
+    <h2>After : {{ text | cut:'world' }}</h2>
+    <h2>{{ number | add:123 }}</h2>
+    <h2>Cycle Numbers</h2>
+    {% if range %}
+      {% for num in range%}
+        <!-- <label class="label label-info label-large">{{ num }}</label><br> -->
+        {% cycle 1 2 as rotate silent %}
+        <label class="label label-info label-large"> {{ num }} + {{ rotate }} = {{ num | add:rotate }}</label><br>
+      {% endfor %}
+    {% endif %}
+  </div>
+  {% endblock %}

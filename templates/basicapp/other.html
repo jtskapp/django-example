@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends 'basicapp/base.html' %}
+  {% block body_block %}
+    <div class="container">
+      <h1>Other Page</h1>
+      <a href="{% url 'index' %}">Index Page</a>
+      <a href="{% url 'about' %}">About Page</a>
+      <a href="{% url 'admin:index' %}">Admin Page</a>
+    </div>
+  {% endblock %}
